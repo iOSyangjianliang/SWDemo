@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B664EBB22544FA100489A8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EBA22544FA100489A8B /* AppDelegate.m */; };
+		2B664EBE22544FA100489A8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EBD22544FA100489A8B /* ViewController.m */; };
+		2B664EC122544FA100489A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B664EBF22544FA100489A8B /* Main.storyboard */; };
+		2B664EC322544FA300489A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B664EC222544FA300489A8B /* Assets.xcassets */; };
+		2B664EC622544FA300489A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B664EC422544FA300489A8B /* LaunchScreen.storyboard */; };
+		2B664EC922544FA300489A8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EC822544FA300489A8B /* main.m */; };
+		2B664ED12254500C00489A8B /* SWRCInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664ED02254500C00489A8B /* SWRCInputAccessoryView.m */; };
+		2B664EEF2254509F00489A8B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2B664ED32254509F00489A8B /* LICENSE */; };
+		2B664EF02254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664ED62254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		2B664EF12254509F00489A8B /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EDF2254509F00489A8B /* ViewController+MASAdditions.m */; };
+		2B664EF22254509F00489A8B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EE32254509F00489A8B /* MASCompositeConstraint.m */; };
+		2B664EF32254509F00489A8B /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EE42254509F00489A8B /* MASConstraintMaker.m */; };
+		2B664EF42254509F00489A8B /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EE52254509F00489A8B /* MASLayoutConstraint.m */; };
+		2B664EF52254509F00489A8B /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EE62254509F00489A8B /* NSArray+MASAdditions.m */; };
+		2B664EF62254509F00489A8B /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EE72254509F00489A8B /* View+MASAdditions.m */; };
+		2B664EF72254509F00489A8B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EEA2254509F00489A8B /* MASConstraint.m */; };
+		2B664EF82254509F00489A8B /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EEC2254509F00489A8B /* MASViewConstraint.m */; };
+		2B664EF92254509F00489A8B /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664EED2254509F00489A8B /* MASViewAttribute.m */; };
+		2B664EFA2254509F00489A8B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2B664EEE2254509F00489A8B /* README.md */; };
+		2B67ED28225C697000D64F40 /* UIView+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B67ED26225C696F00D64F40 /* UIView+Log.m */; };
+		2B67ED31225C6BF800D64F40 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B67ED30225C6BF800D64F40 /* KeyboardViewController.m */; };
+		2B67ED35225C6BF800D64F40 /* 自定义键盘.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B67ED2D225C6BF800D64F40 /* 自定义键盘.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B67ED33225C6BF800D64F40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B664EAE22544FA100489A8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B67ED2C225C6BF800D64F40;
+			remoteInfo = "自定义键盘";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2B67ED39225C6BF800D64F40 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2B67ED35225C6BF800D64F40 /* 自定义键盘.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2B664EB622544FA100489A8B /* 远控键盘demo动态高度.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "远控键盘demo动态高度.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B664EB922544FA100489A8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2B664EBA22544FA100489A8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2B664EBC22544FA100489A8B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2B664EBD22544FA100489A8B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2B664EC022544FA100489A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2B664EC222544FA300489A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B664EC522544FA300489A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2B664EC722544FA300489A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B664EC822544FA300489A8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2B664ECF2254500C00489A8B /* SWRCInputAccessoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRCInputAccessoryView.h; sourceTree = "<group>"; };
+		2B664ED02254500C00489A8B /* SWRCInputAccessoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRCInputAccessoryView.m; sourceTree = "<group>"; };
+		2B664ED32254509F00489A8B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2B664ED52254509F00489A8B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		2B664ED62254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		2B664ED72254509F00489A8B /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		2B664ED82254509F00489A8B /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		2B664ED92254509F00489A8B /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		2B664EDA2254509F00489A8B /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		2B664EDB2254509F00489A8B /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		2B664EDC2254509F00489A8B /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		2B664EDD2254509F00489A8B /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		2B664EDE2254509F00489A8B /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		2B664EDF2254509F00489A8B /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		2B664EE02254509F00489A8B /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		2B664EE12254509F00489A8B /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		2B664EE22254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		2B664EE32254509F00489A8B /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		2B664EE42254509F00489A8B /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		2B664EE52254509F00489A8B /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		2B664EE62254509F00489A8B /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		2B664EE72254509F00489A8B /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		2B664EE82254509F00489A8B /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		2B664EE92254509F00489A8B /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		2B664EEA2254509F00489A8B /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		2B664EEB2254509F00489A8B /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		2B664EEC2254509F00489A8B /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		2B664EED2254509F00489A8B /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		2B664EEE2254509F00489A8B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2B67ED26225C696F00D64F40 /* UIView+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Log.m"; sourceTree = "<group>"; };
+		2B67ED27225C696F00D64F40 /* UIView+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Log.h"; sourceTree = "<group>"; };
+		2B67ED2D225C6BF800D64F40 /* 自定义键盘.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "自定义键盘.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B67ED2F225C6BF800D64F40 /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
+		2B67ED30225C6BF800D64F40 /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+		2B67ED32225C6BF800D64F40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B664EB322544FA100489A8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B67ED2A225C6BF800D64F40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B664EAD22544FA100489A8B = {
+			isa = PBXGroup;
+			children = (
+				2B664EB822544FA100489A8B /* 远控键盘demo动态高度 */,
+				2B67ED2E225C6BF800D64F40 /* 自定义键盘 */,
+				2B664EB722544FA100489A8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B664EB722544FA100489A8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B664EB622544FA100489A8B /* 远控键盘demo动态高度.app */,
+				2B67ED2D225C6BF800D64F40 /* 自定义键盘.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B664EB822544FA100489A8B /* 远控键盘demo动态高度 */ = {
+			isa = PBXGroup;
+			children = (
+				2B664ED22254509F00489A8B /* Masonry */,
+				2B664EB922544FA100489A8B /* AppDelegate.h */,
+				2B664EBA22544FA100489A8B /* AppDelegate.m */,
+				2B67ED27225C696F00D64F40 /* UIView+Log.h */,
+				2B67ED26225C696F00D64F40 /* UIView+Log.m */,
+				2B664EBC22544FA100489A8B /* ViewController.h */,
+				2B664EBD22544FA100489A8B /* ViewController.m */,
+				2B664ECF2254500C00489A8B /* SWRCInputAccessoryView.h */,
+				2B664ED02254500C00489A8B /* SWRCInputAccessoryView.m */,
+				2B664EBF22544FA100489A8B /* Main.storyboard */,
+				2B664EC222544FA300489A8B /* Assets.xcassets */,
+				2B664EC422544FA300489A8B /* LaunchScreen.storyboard */,
+				2B664EC722544FA300489A8B /* Info.plist */,
+				2B664EC822544FA300489A8B /* main.m */,
+			);
+			path = "远控键盘demo动态高度";
+			sourceTree = "<group>";
+		};
+		2B664ED22254509F00489A8B /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				2B664ED32254509F00489A8B /* LICENSE */,
+				2B664ED42254509F00489A8B /* Masonry */,
+				2B664EEE2254509F00489A8B /* README.md */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		2B664ED42254509F00489A8B /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				2B664ED52254509F00489A8B /* MASCompositeConstraint.h */,
+				2B664ED62254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.m */,
+				2B664ED72254509F00489A8B /* MASConstraint+Private.h */,
+				2B664ED82254509F00489A8B /* MASLayoutConstraint.h */,
+				2B664ED92254509F00489A8B /* NSArray+MASShorthandAdditions.h */,
+				2B664EDA2254509F00489A8B /* MASConstraintMaker.h */,
+				2B664EDB2254509F00489A8B /* View+MASAdditions.h */,
+				2B664EDC2254509F00489A8B /* NSArray+MASAdditions.h */,
+				2B664EDD2254509F00489A8B /* MASUtilities.h */,
+				2B664EDE2254509F00489A8B /* MASViewAttribute.h */,
+				2B664EDF2254509F00489A8B /* ViewController+MASAdditions.m */,
+				2B664EE02254509F00489A8B /* MASViewConstraint.h */,
+				2B664EE12254509F00489A8B /* MASConstraint.h */,
+				2B664EE22254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.h */,
+				2B664EE32254509F00489A8B /* MASCompositeConstraint.m */,
+				2B664EE42254509F00489A8B /* MASConstraintMaker.m */,
+				2B664EE52254509F00489A8B /* MASLayoutConstraint.m */,
+				2B664EE62254509F00489A8B /* NSArray+MASAdditions.m */,
+				2B664EE72254509F00489A8B /* View+MASAdditions.m */,
+				2B664EE82254509F00489A8B /* View+MASShorthandAdditions.h */,
+				2B664EE92254509F00489A8B /* Masonry.h */,
+				2B664EEA2254509F00489A8B /* MASConstraint.m */,
+				2B664EEB2254509F00489A8B /* ViewController+MASAdditions.h */,
+				2B664EEC2254509F00489A8B /* MASViewConstraint.m */,
+				2B664EED2254509F00489A8B /* MASViewAttribute.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		2B67ED2E225C6BF800D64F40 /* 自定义键盘 */ = {
+			isa = PBXGroup;
+			children = (
+				2B67ED2F225C6BF800D64F40 /* KeyboardViewController.h */,
+				2B67ED30225C6BF800D64F40 /* KeyboardViewController.m */,
+				2B67ED32225C6BF800D64F40 /* Info.plist */,
+			);
+			path = "自定义键盘";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B664EB522544FA100489A8B /* 远控键盘demo动态高度 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B664ECC22544FA300489A8B /* Build configuration list for PBXNativeTarget "远控键盘demo动态高度" */;
+			buildPhases = (
+				2B664EB222544FA100489A8B /* Sources */,
+				2B664EB322544FA100489A8B /* Frameworks */,
+				2B664EB422544FA100489A8B /* Resources */,
+				2B67ED39225C6BF800D64F40 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B67ED34225C6BF800D64F40 /* PBXTargetDependency */,
+			);
+			name = "远控键盘demo动态高度";
+			productName = "远控键盘demo动态高度";
+			productReference = 2B664EB622544FA100489A8B /* 远控键盘demo动态高度.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B67ED2C225C6BF800D64F40 /* 自定义键盘 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B67ED36225C6BF800D64F40 /* Build configuration list for PBXNativeTarget "自定义键盘" */;
+			buildPhases = (
+				2B67ED29225C6BF800D64F40 /* Sources */,
+				2B67ED2A225C6BF800D64F40 /* Frameworks */,
+				2B67ED2B225C6BF800D64F40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "自定义键盘";
+			productName = "自定义键盘";
+			productReference = 2B67ED2D225C6BF800D64F40 /* 自定义键盘.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B664EAE22544FA100489A8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = yangjianliang;
+				TargetAttributes = {
+					2B664EB522544FA100489A8B = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					2B67ED2C225C6BF800D64F40 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 2B664EB122544FA100489A8B /* Build configuration list for PBXProject "远控键盘demo动态高度" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B664EAD22544FA100489A8B;
+			productRefGroup = 2B664EB722544FA100489A8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B664EB522544FA100489A8B /* 远控键盘demo动态高度 */,
+				2B67ED2C225C6BF800D64F40 /* 自定义键盘 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B664EB422544FA100489A8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B664EC622544FA300489A8B /* LaunchScreen.storyboard in Resources */,
+				2B664EC322544FA300489A8B /* Assets.xcassets in Resources */,
+				2B664EFA2254509F00489A8B /* README.md in Resources */,
+				2B664EEF2254509F00489A8B /* LICENSE in Resources */,
+				2B664EC122544FA100489A8B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B67ED2B225C6BF800D64F40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B664EB222544FA100489A8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B664EF82254509F00489A8B /* MASViewConstraint.m in Sources */,
+				2B664EF92254509F00489A8B /* MASViewAttribute.m in Sources */,
+				2B664EBE22544FA100489A8B /* ViewController.m in Sources */,
+				2B67ED28225C697000D64F40 /* UIView+Log.m in Sources */,
+				2B664ED12254500C00489A8B /* SWRCInputAccessoryView.m in Sources */,
+				2B664EF52254509F00489A8B /* NSArray+MASAdditions.m in Sources */,
+				2B664EF12254509F00489A8B /* ViewController+MASAdditions.m in Sources */,
+				2B664EF22254509F00489A8B /* MASCompositeConstraint.m in Sources */,
+				2B664EC922544FA300489A8B /* main.m in Sources */,
+				2B664EF62254509F00489A8B /* View+MASAdditions.m in Sources */,
+				2B664EF32254509F00489A8B /* MASConstraintMaker.m in Sources */,
+				2B664EF72254509F00489A8B /* MASConstraint.m in Sources */,
+				2B664EF02254509F00489A8B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				2B664EF42254509F00489A8B /* MASLayoutConstraint.m in Sources */,
+				2B664EBB22544FA100489A8B /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B67ED29225C6BF800D64F40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B67ED31225C6BF800D64F40 /* KeyboardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B67ED34225C6BF800D64F40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B67ED2C225C6BF800D64F40 /* 自定义键盘 */;
+			targetProxy = 2B67ED33225C6BF800D64F40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2B664EBF22544FA100489A8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B664EC022544FA100489A8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2B664EC422544FA300489A8B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B664EC522544FA300489A8B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2B664ECA22544FA300489A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2B664ECB22544FA300489A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B664ECD22544FA300489A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQ3JB7TXP9;
+				INFOPLIST_FILE = "远控键盘demo动态高度/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shunwang.----demo----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B664ECE22544FA300489A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQ3JB7TXP9;
+				INFOPLIST_FILE = "远控键盘demo动态高度/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shunwang.----demo----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2B67ED37225C6BF800D64F40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQ3JB7TXP9;
+				INFOPLIST_FILE = "自定义键盘/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shunwang.----demo----.-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B67ED38225C6BF800D64F40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQ3JB7TXP9;
+				INFOPLIST_FILE = "自定义键盘/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shunwang.----demo----.-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B664EB122544FA100489A8B /* Build configuration list for PBXProject "远控键盘demo动态高度" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B664ECA22544FA300489A8B /* Debug */,
+				2B664ECB22544FA300489A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B664ECC22544FA300489A8B /* Build configuration list for PBXNativeTarget "远控键盘demo动态高度" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B664ECD22544FA300489A8B /* Debug */,
+				2B664ECE22544FA300489A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B67ED36225C6BF800D64F40 /* Build configuration list for PBXNativeTarget "自定义键盘" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B67ED37225C6BF800D64F40 /* Debug */,
+				2B67ED38225C6BF800D64F40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B664EAE22544FA100489A8B /* Project object */;
+}

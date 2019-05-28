@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B3FCA4F225B2545008D93FE /* UIView+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FCA4E225B2545008D93FE /* UIView+Log.m */; };
+		2B664F0C2254A86400489A8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664F0B2254A86400489A8B /* AppDelegate.m */; };
+		2B664F0F2254A86400489A8B /* JLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664F0E2254A86400489A8B /* JLViewController.m */; };
+		2B664F122254A86400489A8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B664F102254A86400489A8B /* Main.storyboard */; };
+		2B664F142254A86600489A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B664F132254A86600489A8B /* Assets.xcassets */; };
+		2B664F172254A86600489A8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B664F152254A86600489A8B /* LaunchScreen.storyboard */; };
+		2B664F1A2254A86600489A8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664F192254A86600489A8B /* main.m */; };
+		2B664F222254A8F000489A8B /* SWRCTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B664F202254A8F000489A8B /* SWRCTextViewDelegate.m */; };
+		2B67ED25225C4CBD00D64F40 /* JLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B67ED24225C4CBD00D64F40 /* JLView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B3FCA4D225B2545008D93FE /* UIView+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Log.h"; sourceTree = "<group>"; };
+		2B3FCA4E225B2545008D93FE /* UIView+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Log.m"; sourceTree = "<group>"; };
+		2B664F072254A86400489A8B /* 远控键盘九宫格demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "远控键盘九宫格demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B664F0A2254A86400489A8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2B664F0B2254A86400489A8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2B664F0D2254A86400489A8B /* JLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLViewController.h; sourceTree = "<group>"; };
+		2B664F0E2254A86400489A8B /* JLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLViewController.m; sourceTree = "<group>"; };
+		2B664F112254A86400489A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2B664F132254A86600489A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B664F162254A86600489A8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2B664F182254A86600489A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B664F192254A86600489A8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2B664F202254A8F000489A8B /* SWRCTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRCTextViewDelegate.m; sourceTree = "<group>"; };
+		2B664F212254A8F000489A8B /* SWRCTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRCTextViewDelegate.h; sourceTree = "<group>"; };
+		2B67ED23225C4CBD00D64F40 /* JLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLView.h; sourceTree = "<group>"; };
+		2B67ED24225C4CBD00D64F40 /* JLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B664F042254A86400489A8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B664EFE2254A86400489A8B = {
+			isa = PBXGroup;
+			children = (
+				2B664F092254A86400489A8B /* 远控键盘九宫格demo */,
+				2B664F082254A86400489A8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B664F082254A86400489A8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B664F072254A86400489A8B /* 远控键盘九宫格demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B664F092254A86400489A8B /* 远控键盘九宫格demo */ = {
+			isa = PBXGroup;
+			children = (
+				2B3FCA4D225B2545008D93FE /* UIView+Log.h */,
+				2B3FCA4E225B2545008D93FE /* UIView+Log.m */,
+				2B67ED23225C4CBD00D64F40 /* JLView.h */,
+				2B67ED24225C4CBD00D64F40 /* JLView.m */,
+				2B664F0A2254A86400489A8B /* AppDelegate.h */,
+				2B664F0B2254A86400489A8B /* AppDelegate.m */,
+				2B664F0D2254A86400489A8B /* JLViewController.h */,
+				2B664F0E2254A86400489A8B /* JLViewController.m */,
+				2B664F212254A8F000489A8B /* SWRCTextViewDelegate.h */,
+				2B664F202254A8F000489A8B /* SWRCTextViewDelegate.m */,
+				2B664F102254A86400489A8B /* Main.storyboard */,
+				2B664F132254A86600489A8B /* Assets.xcassets */,
+				2B664F152254A86600489A8B /* LaunchScreen.storyboard */,
+				2B664F182254A86600489A8B /* Info.plist */,
+				2B664F192254A86600489A8B /* main.m */,
+			);
+			path = "远控键盘九宫格demo";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B664F062254A86400489A8B /* 远控键盘九宫格demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B664F1D2254A86600489A8B /* Build configuration list for PBXNativeTarget "远控键盘九宫格demo" */;
+			buildPhases = (
+				2B664F032254A86400489A8B /* Sources */,
+				2B664F042254A86400489A8B /* Frameworks */,
+				2B664F052254A86400489A8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "远控键盘九宫格demo";
+			productName = "远控键盘九宫格demo";
+			productReference = 2B664F072254A86400489A8B /* 远控键盘九宫格demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B664EFF2254A86400489A8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = yangjianliang;
+				TargetAttributes = {
+					2B664F062254A86400489A8B = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 2B664F022254A86400489A8B /* Build configuration list for PBXProject "远控键盘九宫格demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B664EFE2254A86400489A8B;
+			productRefGroup = 2B664F082254A86400489A8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B664F062254A86400489A8B /* 远控键盘九宫格demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B664F052254A86400489A8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B664F172254A86600489A8B /* LaunchScreen.storyboard in Resources */,
+				2B664F142254A86600489A8B /* Assets.xcassets in Resources */,
+				2B664F122254A86400489A8B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B664F032254A86400489A8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B664F0F2254A86400489A8B /* JLViewController.m in Sources */,
+				2B664F222254A8F000489A8B /* SWRCTextViewDelegate.m in Sources */,
+				2B67ED25225C4CBD00D64F40 /* JLView.m in Sources */,
+				2B664F1A2254A86600489A8B /* main.m in Sources */,
+				2B3FCA4F225B2545008D93FE /* UIView+Log.m in Sources */,
+				2B664F0C2254A86400489A8B /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2B664F102254A86400489A8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B664F112254A86400489A8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2B664F152254A86600489A8B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B664F162254A86600489A8B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2B664F1B2254A86600489A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2B664F1C2254A86600489A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B664F1E2254A86600489A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPK597D59E;
+				INFOPLIST_FILE = "远控键盘九宫格demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shunwang.-------demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B664F1F2254A86600489A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPK597D59E;
+				INFOPLIST_FILE = "远控键盘九宫格demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shunwang.-------demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B664F022254A86400489A8B /* Build configuration list for PBXProject "远控键盘九宫格demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B664F1B2254A86600489A8B /* Debug */,
+				2B664F1C2254A86600489A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B664F1D2254A86600489A8B /* Build configuration list for PBXNativeTarget "远控键盘九宫格demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B664F1E2254A86600489A8B /* Debug */,
+				2B664F1F2254A86600489A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B664EFF2254A86400489A8B /* Project object */;
+}
