@@ -1334,7 +1334,7 @@
         
         
         CGPoint pointV = [sender velocityInView:sender.view];//滑动速度（像素/每秒）
-//        NSLog(@"====%@", NSStringFromCGPoint(pointV));
+        NSLog(@"滑动速度====%@", NSStringFromCGPoint(pointV));
         
         CGFloat H = _openGLView.frame.size.height/1000.f;
         H = H>2.0?2.0:H;
@@ -1346,8 +1346,8 @@
         penY = penY>1.f?1.f:penY;
 //        NSLog(@"系数==%.2f", penX);
 
-        penX = 1.15+0.3*penX+0.20*H;
-        penY = 1.15+0.3*penY+0.20*H;
+//        penX = 1.15+0.3*penX+0.20*H;
+//        penY = 1.15+0.3*penY+0.20*H;
 
   
 
@@ -1375,7 +1375,8 @@
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         CGPoint pointV = [sender velocityInView:sender.view];//滑动速度（像素/每秒）
-        NSLog(@"StateEnded速率=%@",NSStringFromCGPoint(pointV));
+        NSLog(@"滑动速度end====%@", NSStringFromCGPoint(pointV));
+        
         
         CGFloat penX = ABS(pointV.x)/5000.f;//速度
         penX = penX>1.f?1.f:penX;
@@ -1386,8 +1387,8 @@
 -(void)ss:(CGPoint)pointV
 {
     CGRect frame = self.openGLView.frame;
-    self.openGLView.transform = CGAffineTransformIdentity;
-    self.openGLView.frame = frame;
+//    self.openGLView.transform = CGAffineTransformIdentity;
+//    self.openGLView.frame = frame;
 
     // 1.创建动画者对象
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
@@ -1413,7 +1414,7 @@
     //添加一个阻力
     UIDynamicItemBehavior * itemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.openGLView]];
     //线速度阻尼 默认值是0.0。有效范围从0.0(没有速度阻尼)到CGFLOAT_MAX(最大速度阻尼)。当设置为CGFLOAT_MAX，动态元素会立马停止就像没有力量作用于它一样。
-    itemBehavior.resistance = 5;//
+    itemBehavior.resistance = 3;//
     [self.animator addBehavior:itemBehavior];
     
     //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

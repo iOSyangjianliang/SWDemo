@@ -34,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 #define LCDScale_5Equal6_To6plus(X) ((SCREEN_MIN_LENGTH>(375.f)) ? ((X)*SCREEN_MIN_LENGTH/375) : (X))
 
 
-
 @interface UIColor (JLHex)
 // 16进制颜色转换
 + (UIColor *)colorWithHexString:(NSString *)hexString;

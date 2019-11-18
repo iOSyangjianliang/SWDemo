@@ -83,6 +83,8 @@
     accV.sw_textView = _textView;
     
     
+    _gesturesView.gesturesMode = SWRCGesturesMode_touch;
+
 
 }
 static int iii = 0;

@@ -25,7 +25,10 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    [[UIApplication sharedApplication].delegate.window makeKeyAndVisible];
     
+    self.vc.www.hidden = YES;
+    self.vc.www = nil;
 //    UIViewController *vc = [[UIViewController alloc] init];
 //    vc.view.backgroundColor = [UIColor blueColor];
 //    [self.navigationController pushViewController:vc animated:YES];
@@ -36,28 +39,29 @@
 
     NSLog(@"A%@",[UIApplication sharedApplication].windows);
     
+    return;
     
-    UIWindow *delegateWindow = [UIApplication sharedApplication].delegate.window;
-    UIWindow *win = [delegateWindow viewWithTag:10086];
-    [win endEditing:YES];
-    win.rootViewController = nil;
-//    [win removeFromSuperview];
-    
-    win.hidden = YES;
-    [delegateWindow makeKeyAndVisible];
-//    [win resignKeyWindow];
-//    win = nil;
-
-    NSLog(@"B%@",[UIApplication sharedApplication].windows);
-
-    NSLog(@"keyWindow=%@",[UIApplication sharedApplication].keyWindow);
-
-    NSLog(@"\n<<<<<<<<<");
+//    UIWindow *delegateWindow = [UIApplication sharedApplication].delegate.window;
+//    UIWindow *win = [delegateWindow viewWithTag:10086];
+//    [win endEditing:YES];
+//    win.rootViewController = nil;
+////    [win removeFromSuperview];
+//    
+//    win.hidden = YES;
+//    [delegateWindow makeKeyAndVisible];
+////    [win resignKeyWindow];
+////    win = nil;
+//
+//    NSLog(@"B%@",[UIApplication sharedApplication].windows);
+//
+//    NSLog(@"keyWindow=%@",[UIApplication sharedApplication].keyWindow);
+//
+//    NSLog(@"\n<<<<<<<<<");
 
 }
 -(void)dealloc
 {
-    NSLog(@"dealloc");
+    NSLog(@"dealloc AAAViewController");
 }
 /*
 #pragma mark - Navigation

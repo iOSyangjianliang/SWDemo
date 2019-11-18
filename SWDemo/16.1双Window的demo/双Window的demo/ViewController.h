@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AAAWindow.h"
 
 @interface ViewController : UIViewController
 
+@property(nonatomic, strong) AAAWindow *www;
 
 @end
 

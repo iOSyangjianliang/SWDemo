@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2591A722EEEE6600505C72 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B2591A622EEEE6600505C72 /* white.png */; };
 		2B4FB1B92177245A00C7BA5C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4FB1B82177245A00C7BA5C /* AppDelegate.m */; };
 		2B4FB1BC2177245A00C7BA5C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4FB1BB2177245A00C7BA5C /* ViewController.m */; };
 		2B4FB1BF2177245A00C7BA5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4FB1BD2177245A00C7BA5C /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B2591A622EEEE6600505C72 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		2B4FB1B42177245A00C7BA5C /* QuartzCore框架api使用.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuartzCore框架api使用.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4FB1B72177245A00C7BA5C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B4FB1B82177245A00C7BA5C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -192,10 +194,11 @@
 		2B4FB1E4217724BF00C7BA5C /* CAGradientLayer渐变 */ = {
 			isa = PBXGroup;
 			children = (
+				2B2591A622EEEE6600505C72 /* white.png */,
 				2B4FB1E5217724BF00C7BA5C /* CCViewController.h */,
-				2B4FB1E6217724BF00C7BA5C /* DDViewController.m */,
 				2B4FB1E7217724BF00C7BA5C /* CCViewController.m */,
 				2B4FB1E8217724BF00C7BA5C /* DDViewController.h */,
+				2B4FB1E6217724BF00C7BA5C /* DDViewController.m */,
 			);
 			path = "CAGradientLayer渐变";
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				2B4FB232217725C300C7BA5C /* good7_30x30_@3x.png in Resources */,
 				2B4FB226217725C300C7BA5C /* snow.png in Resources */,
 				2B4FB235217725C300C7BA5C /* good2_30x30_@3x.png in Resources */,
+				2B2591A722EEEE6600505C72 /* white.png in Resources */,
 				2B4FB22B217725C300C7BA5C /* good1_30x30_@2x.png in Resources */,
 				2B4FB237217725C300C7BA5C /* good3_30x30_@2x.png in Resources */,
 				2B4FB238217725C300C7BA5C /* good3_30x30_@3x.png in Resources */,

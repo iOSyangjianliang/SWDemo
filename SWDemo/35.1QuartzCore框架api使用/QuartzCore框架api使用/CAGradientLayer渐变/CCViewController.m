@@ -19,16 +19,17 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //1.
-    //    [self addGradientLayer];
+//        [self addGradientLayer];
     
     //2.
-    //    [self addGradientLayer_1];
+//        [self addGradientLayer_1];
     
     //3.
-    //        [self addGradientLayer_2];
+//            [self addGradientLayer_2];
     
     //4.
-    [self test_music];
+//    [self test_music];
+    
     
 }
 -(void)addGradientLayer
@@ -168,6 +169,9 @@
     });
     
 }
+
+
+
 
 /*
 #pragma mark - Navigation

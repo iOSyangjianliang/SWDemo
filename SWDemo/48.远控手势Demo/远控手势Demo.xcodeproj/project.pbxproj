@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2353762333705500AAED4A /* SWDynamicInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2353752333705500AAED4A /* SWDynamicInteraction.m */; };
+		2B235379233376AF00AAED4A /* SWScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B235378233376AF00AAED4A /* SWScrollViewController.m */; };
 		2B472A4C222CF77D00C65C27 /* SWRCInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B472A41222CF77D00C65C27 /* SWRCInputAccessoryView.m */; };
 		2B472A4D222CF77D00C65C27 /* SWRCInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B472A42222CF77D00C65C27 /* SWRCInputModel.m */; };
 		2B472A4E222CF77D00C65C27 /* SWRCInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B472A43222CF77D00C65C27 /* SWRCInputView.m */; };
@@ -29,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B2353742333705500AAED4A /* SWDynamicInteraction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWDynamicInteraction.h; sourceTree = "<group>"; };
+		2B2353752333705500AAED4A /* SWDynamicInteraction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWDynamicInteraction.m; sourceTree = "<group>"; };
+		2B235377233376AF00AAED4A /* SWScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWScrollViewController.h; sourceTree = "<group>"; };
+		2B235378233376AF00AAED4A /* SWScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWScrollViewController.m; sourceTree = "<group>"; };
 		2B472A41222CF77D00C65C27 /* SWRCInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRCInputAccessoryView.m; sourceTree = "<group>"; };
 		2B472A42222CF77D00C65C27 /* SWRCInputModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRCInputModel.m; sourceTree = "<group>"; };
 		2B472A43222CF77D00C65C27 /* SWRCInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRCInputView.m; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				2B4CD9F02213F02E000D2E0C /* AppDelegate.m */,
 				2B4CD9F22213F02E000D2E0C /* ViewController.h */,
 				2B4CD9F32213F02E000D2E0C /* ViewController.m */,
+				2B235377233376AF00AAED4A /* SWScrollViewController.h */,
+				2B235378233376AF00AAED4A /* SWScrollViewController.m */,
 				2B4CD9F52213F02E000D2E0C /* Main.storyboard */,
 				2B4CD9F82213F032000D2E0C /* Assets.xcassets */,
 				2B4CD9FA2213F032000D2E0C /* LaunchScreen.storyboard */,
@@ -140,6 +148,8 @@
 				2B4CDA1B2214020E000D2E0C /* SWRCGesturesView.m */,
 				2B472A58222E4B1A00C65C27 /* SWRCTouchAnimatedView.h */,
 				2B472A59222E4B1A00C65C27 /* SWRCTouchAnimatedView.m */,
+				2B2353742333705500AAED4A /* SWDynamicInteraction.h */,
+				2B2353752333705500AAED4A /* SWDynamicInteraction.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,12 +232,14 @@
 				2B472A5A222E4B1A00C65C27 /* SWRCTouchAnimatedView.m in Sources */,
 				2B472A50222CF77D00C65C27 /* SWRCInputCell.m in Sources */,
 				2B472A4C222CF77D00C65C27 /* SWRCInputAccessoryView.m in Sources */,
+				2B2353762333705500AAED4A /* SWDynamicInteraction.m in Sources */,
 				2B4CD9F42213F02E000D2E0C /* ViewController.m in Sources */,
 				2B472A51222CF77D00C65C27 /* SWRCInputDataSource.m in Sources */,
 				2B472A4E222CF77D00C65C27 /* SWRCInputView.m in Sources */,
 				2B472A4D222CF77D00C65C27 /* SWRCInputModel.m in Sources */,
 				2B4CDA2522154AF6000D2E0C /* SWRCOpenGLView.m in Sources */,
 				2B4CDA1F2214020F000D2E0C /* SWRCGesturesView.m in Sources */,
+				2B235379233376AF00AAED4A /* SWScrollViewController.m in Sources */,
 				2B4CD9FF2213F032000D2E0C /* main.m in Sources */,
 				2B4CD9F12213F02E000D2E0C /* AppDelegate.m in Sources */,
 			);

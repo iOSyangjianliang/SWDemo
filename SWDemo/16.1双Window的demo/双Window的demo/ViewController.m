@@ -8,8 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
 
+#import "AAAViewController.h"
+
+@interface ViewController ()
 @end
 
 @implementation ViewController
@@ -21,16 +23,21 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self.view endEditing:YES];
+    if (!self.www)
+    {
+        // 2. 再创建一个窗口
+        AAAWindow *w2 = [[AAAWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        w2.tag = 123;
+        AAAViewController *aVC = [[AAAViewController alloc] init];
+        w2.rootViewController = aVC;
+        w2.backgroundColor = [UIColor yellowColor];
+        self.www = w2;//不强引用会被释放、展示不出来
+        
+        aVC.vc = self;
+    }
     
-    UIAlertController *alVC = [UIAlertController alertControllerWithTitle:@"sdd" message:@"dasdadasd" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ac = [UIAlertAction actionWithTitle:@"quxiao" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    [alVC addAction:ac];
-    [self presentViewController:alVC animated:YES completion:^{
-        
-    }];
+    [self.www makeKeyAndVisible];
+
 }
 
 @end

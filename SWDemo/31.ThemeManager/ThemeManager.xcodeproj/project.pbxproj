@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B115BD822C34B2D00ABF7BD /* RRThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B115BD722C34B2D00ABF7BD /* RRThemeManager.m */; };
+		2B115BDB22C34B5100ABF7BD /* NSObject+RRTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B115BDA22C34B5100ABF7BD /* NSObject+RRTheme.m */; };
+		2B115BDE22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B115BDD22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.m */; };
+		2B115BE322C34C9B00ABF7BD /* UIImageView+RRTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B115BE222C34C9B00ABF7BD /* UIImageView+RRTheme.m */; };
+		2B115BE622C34F3700ABF7BD /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B115BE422C34F3600ABF7BD /* test1.png */; };
+		2B115BE722C34F3700ABF7BD /* test2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B115BE522C34F3600ABF7BD /* test2.png */; };
 		2B7C2A0520CE02100010CB3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A0420CE02100010CB3A /* AppDelegate.m */; };
 		2B7C2A0820CE02100010CB3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A0720CE02100010CB3A /* ViewController.m */; };
 		2B7C2A0B20CE02100010CB3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B7C2A0920CE02100010CB3A /* Main.storyboard */; };
 		2B7C2A0D20CE02110010CB3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B7C2A0C20CE02110010CB3A /* Assets.xcassets */; };
 		2B7C2A1020CE02110010CB3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B7C2A0E20CE02110010CB3A /* LaunchScreen.storyboard */; };
 		2B7C2A1320CE02110010CB3A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A1220CE02110010CB3A /* main.m */; };
-		2B7C2A1C20CE023B0010CB3A /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A1B20CE023B0010CB3A /* ThemeManager.m */; };
-		2B7C2A2220CE02810010CB3A /* UIButton+WYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A2120CE02810010CB3A /* UIButton+WYTheme.m */; };
-		2B7C2A2520CE028D0010CB3A /* UIImageView+WYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A2420CE028D0010CB3A /* UIImageView+WYTheme.m */; };
-		2B7C2A2820CE02D60010CB3A /* UIView+WYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C2A2720CE02D60010CB3A /* UIView+WYTheme.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B115BD622C34B2D00ABF7BD /* RRThemeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRThemeManager.h; sourceTree = "<group>"; };
+		2B115BD722C34B2D00ABF7BD /* RRThemeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRThemeManager.m; sourceTree = "<group>"; };
+		2B115BD922C34B5100ABF7BD /* NSObject+RRTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+RRTheme.h"; sourceTree = "<group>"; };
+		2B115BDA22C34B5100ABF7BD /* NSObject+RRTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RRTheme.m"; sourceTree = "<group>"; };
+		2B115BDC22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+RRDeallocBlock.h"; sourceTree = "<group>"; };
+		2B115BDD22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RRDeallocBlock.m"; sourceTree = "<group>"; };
+		2B115BE122C34C9B00ABF7BD /* UIImageView+RRTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RRTheme.h"; sourceTree = "<group>"; };
+		2B115BE222C34C9B00ABF7BD /* UIImageView+RRTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RRTheme.m"; sourceTree = "<group>"; };
+		2B115BE422C34F3600ABF7BD /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
+		2B115BE522C34F3600ABF7BD /* test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test2.png; sourceTree = "<group>"; };
 		2B7C2A0020CE02100010CB3A /* ThemeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B7C2A0320CE02100010CB3A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B7C2A0420CE02100010CB3A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,14 +42,6 @@
 		2B7C2A0F20CE02110010CB3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B7C2A1120CE02110010CB3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B7C2A1220CE02110010CB3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2B7C2A1A20CE023B0010CB3A /* ThemeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
-		2B7C2A1B20CE023B0010CB3A /* ThemeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
-		2B7C2A2020CE02810010CB3A /* UIButton+WYTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WYTheme.h"; sourceTree = "<group>"; };
-		2B7C2A2120CE02810010CB3A /* UIButton+WYTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WYTheme.m"; sourceTree = "<group>"; };
-		2B7C2A2320CE028D0010CB3A /* UIImageView+WYTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WYTheme.h"; sourceTree = "<group>"; };
-		2B7C2A2420CE028D0010CB3A /* UIImageView+WYTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WYTheme.m"; sourceTree = "<group>"; };
-		2B7C2A2620CE02D60010CB3A /* UIView+WYTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WYTheme.h"; sourceTree = "<group>"; };
-		2B7C2A2720CE02D60010CB3A /* UIView+WYTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WYTheme.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B115BD522C34B1800ABF7BD /* RRTheme */ = {
+			isa = PBXGroup;
+			children = (
+				2B115BE022C34C6F00ABF7BD /* UIKit */,
+				2B115BDF22C34C6000ABF7BD /* Core */,
+				2B115BD622C34B2D00ABF7BD /* RRThemeManager.h */,
+				2B115BD722C34B2D00ABF7BD /* RRThemeManager.m */,
+			);
+			path = RRTheme;
+			sourceTree = "<group>";
+		};
+		2B115BDF22C34C6000ABF7BD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2B115BD922C34B5100ABF7BD /* NSObject+RRTheme.h */,
+				2B115BDA22C34B5100ABF7BD /* NSObject+RRTheme.m */,
+				2B115BDC22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.h */,
+				2B115BDD22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2B115BE022C34C6F00ABF7BD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2B115BE122C34C9B00ABF7BD /* UIImageView+RRTheme.h */,
+				2B115BE222C34C9B00ABF7BD /* UIImageView+RRTheme.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		2B7C29F720CE02100010CB3A = {
 			isa = PBXGroup;
 			children = (
@@ -70,31 +105,18 @@
 		2B7C2A0220CE02100010CB3A /* ThemeManager */ = {
 			isa = PBXGroup;
 			children = (
-				2B7C2A1920CE02190010CB3A /* ThemeManager */,
+				2B115BE422C34F3600ABF7BD /* test1.png */,
+				2B115BE522C34F3600ABF7BD /* test2.png */,
+				2B115BD522C34B1800ABF7BD /* RRTheme */,
 				2B7C2A0320CE02100010CB3A /* AppDelegate.h */,
 				2B7C2A0420CE02100010CB3A /* AppDelegate.m */,
+				2B7C2A0C20CE02110010CB3A /* Assets.xcassets */,
+				2B7C2A1120CE02110010CB3A /* Info.plist */,
+				2B7C2A0E20CE02110010CB3A /* LaunchScreen.storyboard */,
+				2B7C2A1220CE02110010CB3A /* main.m */,
+				2B7C2A0920CE02100010CB3A /* Main.storyboard */,
 				2B7C2A0620CE02100010CB3A /* ViewController.h */,
 				2B7C2A0720CE02100010CB3A /* ViewController.m */,
-				2B7C2A0920CE02100010CB3A /* Main.storyboard */,
-				2B7C2A0C20CE02110010CB3A /* Assets.xcassets */,
-				2B7C2A0E20CE02110010CB3A /* LaunchScreen.storyboard */,
-				2B7C2A1120CE02110010CB3A /* Info.plist */,
-				2B7C2A1220CE02110010CB3A /* main.m */,
-			);
-			path = ThemeManager;
-			sourceTree = "<group>";
-		};
-		2B7C2A1920CE02190010CB3A /* ThemeManager */ = {
-			isa = PBXGroup;
-			children = (
-				2B7C2A1A20CE023B0010CB3A /* ThemeManager.h */,
-				2B7C2A1B20CE023B0010CB3A /* ThemeManager.m */,
-				2B7C2A2620CE02D60010CB3A /* UIView+WYTheme.h */,
-				2B7C2A2720CE02D60010CB3A /* UIView+WYTheme.m */,
-				2B7C2A2020CE02810010CB3A /* UIButton+WYTheme.h */,
-				2B7C2A2120CE02810010CB3A /* UIButton+WYTheme.m */,
-				2B7C2A2320CE028D0010CB3A /* UIImageView+WYTheme.h */,
-				2B7C2A2420CE028D0010CB3A /* UIImageView+WYTheme.m */,
 			);
 			path = ThemeManager;
 			sourceTree = "<group>";
@@ -157,7 +179,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B7C2A1020CE02110010CB3A /* LaunchScreen.storyboard in Resources */,
+				2B115BE722C34F3700ABF7BD /* test2.png in Resources */,
 				2B7C2A0D20CE02110010CB3A /* Assets.xcassets in Resources */,
+				2B115BE622C34F3700ABF7BD /* test1.png in Resources */,
 				2B7C2A0B20CE02100010CB3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,13 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B115BDE22C34BBF00ABF7BD /* NSObject+RRDeallocBlock.m in Sources */,
+				2B115BE322C34C9B00ABF7BD /* UIImageView+RRTheme.m in Sources */,
 				2B7C2A0820CE02100010CB3A /* ViewController.m in Sources */,
 				2B7C2A1320CE02110010CB3A /* main.m in Sources */,
+				2B115BDB22C34B5100ABF7BD /* NSObject+RRTheme.m in Sources */,
 				2B7C2A0520CE02100010CB3A /* AppDelegate.m in Sources */,
-				2B7C2A1C20CE023B0010CB3A /* ThemeManager.m in Sources */,
-				2B7C2A2820CE02D60010CB3A /* UIView+WYTheme.m in Sources */,
-				2B7C2A2520CE028D0010CB3A /* UIImageView+WYTheme.m in Sources */,
-				2B7C2A2220CE02810010CB3A /* UIButton+WYTheme.m in Sources */,
+				2B115BD822C34B2D00ABF7BD /* RRThemeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2VZHX58HUJ;
+				DEVELOPMENT_TEAM = JPK597D59E;
 				INFOPLIST_FILE = ThemeManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -333,7 +357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2VZHX58HUJ;
+				DEVELOPMENT_TEAM = JPK597D59E;
 				INFOPLIST_FILE = ThemeManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

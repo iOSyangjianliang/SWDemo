@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIImageView+RRTheme.h"
 
 @interface ViewController ()
 
@@ -17,8 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    imageV.backgroundColor = [UIColor redColor];
+    imageV.theme_image = @"home_icon";
+    [self.view addSubview:imageV];
 }
-
+static bool bo = NO;
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    bo = !bo;
+    [[RRThemeManager sharedInstance] changeTheme:[NSString stringWithFormat:@"%d",bo]];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

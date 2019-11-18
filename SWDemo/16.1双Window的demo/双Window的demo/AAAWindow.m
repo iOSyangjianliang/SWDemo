@@ -17,5 +17,9 @@
     // Drawing code
 }
 */
+-(void)dealloc
+{
+    NSLog(@"AAAWindow delloc");
+}
 
 @end

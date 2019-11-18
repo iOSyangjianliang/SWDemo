@@ -25,11 +25,11 @@
 
     [self.view.layer addSublayer:self.lineLayer];
 //
-//    [self.view.layer addSublayer:self.curveLayer];
+    [self.view.layer addSublayer:self.curveLayer];
 
-//    [self.view.layer addSublayer:self.circleLayer];
+    [self.view.layer addSublayer:self.circleLayer];
 
-//    [self test];
+    [self test];
     
     [self testdrawRect];
 }
