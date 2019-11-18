@@ -27,15 +27,18 @@
     
     self.testView.maxLength = 60;
     self.testView.sizeToFitHight = YES;
-    [self.testView addTextDidChangeHandler:^(JLTextView * _Nonnull view, NSUInteger curryLength) {
+    
+    self.testView.textHeightHandler = ^(JLTextView * _Nonnull view, CGFloat textHeight) {
+        self.height_LayoutC_testView.constant = textHeight+1.f;
+    };
+    
+    self.testView.textLengthHandler = ^(JLTextView * _Nonnull view, NSUInteger curryLength) {
         NSInteger reminder = 60-(NSInteger)curryLength;
         reminder<0?reminder =0 :reminder;
         self.reminderLab.text = [NSString stringWithFormat:@"还可以输入:%ld字符",reminder];
-        
-    }];
-    [self.testView addTextHeightDidChangeHandler:^(JLTextView * _Nonnull view, CGFloat textHeight) {
-        self.height_LayoutC_testView.constant = textHeight+1.f;
-    }];
+    };
+    
+   
     
     NSString *strr = [[NSUserDefaults standardUserDefaults] objectForKey: @"666"];
 

@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "JLTextView.h"
 
+#import "BBViewController.h"
+
 @interface ViewController ()<UITextViewDelegate>
 @property(nonatomic,strong)JLTextView *inputView;
 @end
@@ -47,19 +49,19 @@
     _inputView.minNumberOfLines = 2;
     _inputView.maxNumberOfLines =  4;
     _inputView.sizeToFitHight = YES;
-    _inputView.textInsetAdjustBehavior = JLTextInsetAdjustmentAutomatic;
+    _inputView.isAutoAdjustTextInsetBehavior = YES;
     
     [self.view addSubview:_inputView];
     
-    [_inputView addTextDidChangeHandler:^(JLTextView *view, NSUInteger length) {
-        NSLog(@"==%lu",(unsigned long)length);
-    }];
+    _inputView.textLengthHandler = ^(JLTextView * _Nonnull view, NSUInteger curryLength) {
+        NSLog(@"==%lu",(unsigned long)curryLength);
+
+    };
     
-    [_inputView addTextHeightDidChangeHandler:^(JLTextView *view, CGFloat textHeight) {
+    _inputView.textHeightHandler = ^(JLTextView * _Nonnull view, CGFloat textHeight) {
         NSLog(@"高度改变了==%f",textHeight);
         NSLog(@"%f",view.font.lineHeight);
-
-    }];
+    };
     
     
     
@@ -100,9 +102,9 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"%d",_inputView.scrollEnabled);
-
-    NSLog(@"%f",_inputView.frame.size.height);
+//    NSLog(@"%d",_inputView.scrollEnabled);
+//
+//    NSLog(@"%f",_inputView.frame.size.height);
 
 //    _inputView.minNumberOfLines = 3;
 
@@ -114,11 +116,18 @@
         [self.view endEditing:YES];
     //    [_inputView removeFromSuperview];
     
-    UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UIViewController *vc=  [SB instantiateViewControllerWithIdentifier:@"AAViewControllerID"];
-    [self presentViewController:vc animated:YES completion:nil];
+    //2.
+//    UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *vc=  [SB instantiateViewControllerWithIdentifier:@"AAViewControllerID"];
+//    [self presentViewController:vc animated:YES completion:nil];
   
+    
+    //3.
+    BBViewController *vc=  [BBViewController new];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

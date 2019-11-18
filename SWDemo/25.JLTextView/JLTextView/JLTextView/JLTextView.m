@@ -13,13 +13,11 @@
 @property (nonatomic, weak) UITextView *placeholderView;
 @property (nonatomic, assign) BOOL scrollEnabledLock;//当使用sizeToFitHight=YES时scrollEnabled外部设置无效
 
+@property (nonatomic, assign) BOOL isNextDidChangeHeight;
 @property (nonatomic, assign) CGFloat lastTextHeight;
-@property (nonatomic, assign) CGFloat curryLineSpacing;
 
-@property (nonatomic, copy) JLTextChangedHandler textHandler; // 文本改变Block
-@property (nonatomic, copy) JLTextHeightChangedHandler textHeightHandler; // 自适应高度调整后Block
 @end
-static CGFloat const defaultTextHeight = -1.f;
+
 @implementation JLTextView
 @dynamic text ;
 
@@ -39,17 +37,20 @@ static CGFloat const defaultTextHeight = -1.f;
 }
 - (void)initDefaultData
 {
-    _rowHeight = self.font.lineHeight;
-    _curryLineSpacing = 0.f;
-    _curryLines = 0;
+    _jlLineHeight = self.font.lineHeight;
+    _jlLineSpacing = 0.f;
+    _jlCurryLines = 0;
+    _jlFontSpacing = 0.f;
+
     _minNumberOfLines = 1;
     _maxNumberOfLines = NSUIntegerMax;
     _maxLength = NSUIntegerMax;
     _sizeToFitHight = NO;
-    _lastTextHeight = defaultTextHeight;
+    _isNextDidChangeHeight = NO;
+    
     _placeholderColor = [UIColor colorWithRed:194.f/255.0f green:194.f/255.0f blue:194.f/255.0f alpha:1.0];
     _scrollEnabledLock = NO;
-    _textInsetAdjustBehavior = JLTextInsetAdjustmentNormal;
+    _isAutoAdjustTextInsetBehavior = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:nil];
 }
 #pragma mark - placeholderView
@@ -67,6 +68,7 @@ static CGFloat const defaultTextHeight = -1.f;
         _placeholderView.font = self.font;
         _placeholderView.attributedText = self.attributedText;
         _placeholderView.textContainerInset = self.textContainerInset;
+        _placeholderView.hidden = self.text.length > 0?YES:NO;
         [self addSubview:placeholderView];
     }
     return _placeholderView;
@@ -107,12 +109,12 @@ static CGFloat const defaultTextHeight = -1.f;
     if (self.minNumberOfLines == 0) {
         return 0.0;
     }
-    CGFloat heightMIN = self.rowHeight * self.minNumberOfLines+self.curryLineSpacing* (self.minNumberOfLines-1) + self.textContainerInset.top + self.textContainerInset.bottom +self.contentInset.top+self.contentInset.bottom;
+    CGFloat heightMIN = self.jlLineHeight * self.minNumberOfLines+self.jlLineSpacing* (self.minNumberOfLines-1) + self.textContainerInset.top + self.textContainerInset.bottom +self.contentInset.top+self.contentInset.bottom;
     return ceilf(heightMIN);
 }
 -(CGFloat)maxTextHeight
 {
-    CGFloat heightMAX = self.rowHeight* self.maxNumberOfLines+self.curryLineSpacing* (self.maxNumberOfLines-1) + self.textContainerInset.top + self.textContainerInset.bottom+self.contentInset.top+self.contentInset.bottom;
+    CGFloat heightMAX = self.jlLineHeight* self.maxNumberOfLines+self.jlLineSpacing* (self.maxNumberOfLines-1) + self.textContainerInset.top + self.textContainerInset.bottom+self.contentInset.top+self.contentInset.bottom;
     return ceilf(heightMAX);
 }
 -(void)setMaxLength:(NSUInteger)maxLength
@@ -125,11 +127,12 @@ static CGFloat const defaultTextHeight = -1.f;
 #pragma mark - 自适应高度
 -(void)sizeToFitMinLinesHightWhenNoText
 {
-    if (self.sizeToFitHight && self.text.length==0) {
-        BOOL heightChange = self.frame.size.height!=self.minTextHeight;
-        CGRect frame = self.frame;
-        frame.size.height = self.minTextHeight;
-        self.frame = frame;
+    if (self.sizeToFitHight && self.text.length==0)
+    {
+        BOOL heightChange = self.bounds.size.height!=self.minTextHeight;
+        CGRect bounds = self.bounds;//对于旋转一定角度，设置frame可能会出错。若需要可以在_textHeightHandler再做调整frame
+        bounds.size.height = self.minTextHeight;
+        self.bounds = bounds;
         if (heightChange) {
             _lastTextHeight = self.minTextHeight;
             !_textHeightHandler ?: _textHeightHandler(self,self.minTextHeight);
@@ -138,40 +141,42 @@ static CGFloat const defaultTextHeight = -1.f;
 }
 -(void)sizeToFitHightWhenNeed
 {
-    if (self.sizeToFitHight) {
-        
-//        CGFloat heightText = [self jl_getTextHeightInTextView:self.text];
+    if (self.sizeToFitHight)
+    {
         CGFloat heightText  = [self calculateTextHeight];
-        CGFloat height = [self jl_getTextViewHeightWithTextHeight:heightText];
-        if (self.lastTextHeight != height)
+        CGFloat heightTop_bottom  = [self jl_getHeightOfContentMargin];
+        CGFloat height_textView = heightText+ heightTop_bottom;
+        if (self.isNextDidChangeHeight || self.lastTextHeight != height_textView)
         {
             //优化系统输入时跳动
             self.scrollEnabledLock = NO;
             self.scrollEnabled = NO;
             self.scrollEnabledLock = YES;
 
-            if (height<=self.minTextHeight)
+            if (height_textView<=self.minTextHeight)
             {
-                if (self.textInsetAdjustBehavior == JLTextInsetAdjustmentAutomatic) {
+                if (_isAutoAdjustTextInsetBehavior) {
                     super.textContainerInset = UIEdgeInsetsMake(8, 0, 8, 0);
                     _placeholderView.textContainerInset = super.textContainerInset;
                     self.contentInset = UIEdgeInsetsZero;
-                    height = [self jl_getTextViewHeightWithTextHeight:heightText];
+                    heightTop_bottom  = [self jl_getHeightOfContentMargin];
+                    height_textView = heightText+heightTop_bottom;
                 }
                
 
-                CGRect frame = self.frame;
-                frame.size.height = self.minTextHeight;
-                self.frame = frame;
+                CGRect bounds = self.bounds;
+                bounds.size.height = self.minTextHeight;
+                self.bounds = bounds;
                 !_textHeightHandler ?: _textHeightHandler(self,self.minTextHeight);
             }
-            else if (height>=self.maxTextHeight)
+            else if (height_textView>=self.maxTextHeight)
             {
-                if (self.textInsetAdjustBehavior == JLTextInsetAdjustmentAutomatic) {
+                if (_isAutoAdjustTextInsetBehavior) {
                     super.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
                     _placeholderView.textContainerInset = super.textContainerInset;
-                    self.contentInset = UIEdgeInsetsMake(0, 0, 6, 0);
-                    height = [self jl_getTextViewHeightWithTextHeight:heightText];
+                    self.contentInset = UIEdgeInsetsMake(0, 0, 4, 0);
+                    heightTop_bottom  = [self jl_getHeightOfContentMargin];
+                    height_textView = heightText+heightTop_bottom;
                 }
                 //当高度大于自身高度时允许滚动
                 self.scrollEnabledLock = NO;
@@ -179,65 +184,101 @@ static CGFloat const defaultTextHeight = -1.f;
                 self.scrollEnabledLock = YES;
 
                 CGFloat H = self.maxTextHeight;
-                CGRect frame = self.frame;
-                frame.size.height = H;
-                self.frame = frame;
+                CGRect bounds = self.bounds;
+                bounds.size.height = H;
+                self.bounds = bounds;
               
                 !_textHeightHandler ?: _textHeightHandler(self,H);
            
             }else{
-                if (self.textInsetAdjustBehavior == JLTextInsetAdjustmentAutomatic) {
+                if (_isAutoAdjustTextInsetBehavior) {
                     super.textContainerInset = UIEdgeInsetsMake(2, 0, 0, 0);
                     _placeholderView.textContainerInset = super.textContainerInset;
-                    self.contentInset = UIEdgeInsetsMake(0, 0, 5,0);
-                    height = [self jl_getTextViewHeightWithTextHeight:heightText];
+                    self.contentInset = UIEdgeInsetsMake(0, 0, 4,0);
+                    heightTop_bottom  = [self jl_getHeightOfContentMargin];
+                    height_textView = heightText+heightTop_bottom;
                 }
-                CGFloat H = height;
-                CGRect frame = self.frame;
-                frame.size.height = H;
-                self.frame = frame;
+                CGFloat H = height_textView;
+                CGRect bounds = self.bounds;
+                bounds.size.height = H;
+                self.bounds = bounds;
                 !_textHeightHandler ?: _textHeightHandler(self,H);
 
             }
             // 字符串高度改变时调整frame高度
-            self.lastTextHeight = height;
+            self.lastTextHeight = height_textView;
         }
     }
 }
-//为了解决bug:设置行间距系统计算第一行会加上行间距，这不是我想要的结果
+//为了解决bug
+//如果是一行并且带中文，并且设置了间距lineSpace，结果多发现显示出来多了一个间距的高度。
 - (CGFloat )calculateTextHeight
 {
-    NSMutableDictionary *dictM = [NSMutableDictionary dictionaryWithDictionary:self.typingAttributes];
-    NSMutableParagraphStyle *attName =  [dictM objectForKey:NSParagraphStyleAttributeName];
-    if (attName) {
-        attName.lineSpacing = 0.f;
-        [dictM setObject:attName forKey:NSParagraphStyleAttributeName];
+    CGFloat textHeight = [self jl_getTextHeightInTextView:self.text];
+
+    //文本的高度减去字体高度小于等于行间距，判断为当前只有1行
+    if (_jlLineSpacing>0.f)
+    {
+        if ( ( (textHeight - _jlLineHeight) - _jlLineSpacing) <= 0.01)
+        {// -> (textHeight - _jlLineHeight) == _jlLineSpacing)
+            if ([self containChinese:self.text])
+            { //如果包含中文
+                textHeight -= _jlLineSpacing;
+            }
+        }
     }
-    
-    CGFloat  width = [self jl_getTextViewContentTextWidth];
-    CGFloat textHeight =  [self.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dictM context:nil].size.height;
-    
-    CGFloat Lines = textHeight/self.rowHeight;
-    _curryLines = Lines;
-    NSLog(@"jl_curryLines%f",Lines);
-    
-    textHeight = textHeight+self.curryLineSpacing*(Lines-1);
-    NSLog(@"jl_textHeight%f",textHeight);
+    //计算当前行数 nk1+(n-1)*k2 = s
+    if ((_jlLineHeight+_jlLineSpacing)!=0) {
+        CGFloat Lines = (textHeight+_jlLineSpacing)/(_jlLineHeight+_jlLineSpacing);
+        _jlCurryLines = roundf(Lines);
+        NSLog(@"jl_jlCurryLines%f",Lines);
+    }
+
     return textHeight;
+    
+//fun 2
+//    NSMutableDictionary *dictM = [NSMutableDictionary dictionaryWithDictionary:self.typingAttributes];
+//    NSMutableParagraphStyle *attName =  [dictM objectForKey:NSParagraphStyleAttributeName];
+//    if (attName) {
+//        attName.lineSpacing = 0.f;
+//        [dictM setObject:attName forKey:NSParagraphStyleAttributeName];
+//    }
+//
+//    CGFloat  width = [self jl_getWidthOfContentText];
+//    CGFloat textHeight =  [self.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dictM context:nil].size.height;
+//
+//    CGFloat Lines = textHeight/self.jlLineHeight;
+//    _jlCurryLines = Lines;
+//    NSLog(@"jl_jlCurryLines%f",Lines);
+//
+//    textHeight = textHeight+self.jlLineSpacing*(Lines-1);
+//    NSLog(@"jl_textHeight%f",textHeight);
+//    return textHeight;
 }
+//判断如果包含中文
+- (BOOL)containChinese:(NSString *)str
+{
+    for(int i=0; i< [str length];i++){ int a = [str characterAtIndex:i];
+        if( a > 0x4e00 && a < 0x9fff){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 //限制字符输入
 -(void)limitCharacterLengthWhenNeed
 {
     [self jl_limitTextViewMaxLengthWhenDidChange:self.maxLength];
     // 回调文本改变的Block.
-    !_textHandler ?: _textHandler(self,self.text.length);
+    !_textLengthHandler ?: _textLengthHandler(self,self.text.length);
 }
 -(void)setMinNumberOfLines:(NSUInteger)minNumberOfLines
 {
     NSUInteger lastMinNumberOfLines = self.minNumberOfLines;
     _minNumberOfLines = minNumberOfLines<_maxNumberOfLines?minNumberOfLines:_maxNumberOfLines;
     if (self.minNumberOfLines!=lastMinNumberOfLines) {
-        _lastTextHeight = defaultTextHeight;
+        self.isNextDidChangeHeight = YES;
         [self sizeToFitHightWhenNeed];
     }
 }
@@ -246,7 +287,7 @@ static CGFloat const defaultTextHeight = -1.f;
     NSUInteger lastMaxNumberOfLines = self.maxNumberOfLines;
     _maxNumberOfLines = maxNumberOfLines>_minNumberOfLines?maxNumberOfLines:_minNumberOfLines;
     if (self.maxNumberOfLines!=lastMaxNumberOfLines) {
-        _lastTextHeight = defaultTextHeight;
+        self.isNextDidChangeHeight = YES;
         [self sizeToFitHightWhenNeed];
     }
 }
@@ -262,14 +303,6 @@ static CGFloat const defaultTextHeight = -1.f;
     //自适应高度
     [self sizeToFitHightWhenNeed];
 }
--(void)addTextDidChangeHandler:(JLTextChangedHandler)textHandler
-{
-    _textHandler = [textHandler copy];
-}
--(void)addTextHeightDidChangeHandler:(JLTextHeightChangedHandler)textHeightHandler
-{
-    _textHeightHandler = [textHeightHandler copy];
-}
 #pragma mark - 重写父类方法
 -(void)setScrollEnabled:(BOOL)scrollEnabled
 {
@@ -281,11 +314,27 @@ static CGFloat const defaultTextHeight = -1.f;
 {
     [super setFont:font];
     [_placeholderView setFont:font];
-    NSMutableParagraphStyle *attName =  [self.typingAttributes objectForKey:NSParagraphStyleAttributeName];
-    if (attName) {
-        _rowHeight = font.lineHeight>_rowHeight?font.lineHeight:_rowHeight;
-    }else{
-        _rowHeight = font.lineHeight;
+    
+    [self updateCurry_jlLineHeight_jlLineSpacing];//若已设置富文本、再设置font，font自动加入typingAttributes中、并调整富文本
+    self.isNextDidChangeHeight = YES;
+    [self sizeToFitHightWhenNeed];
+}
+-(void)updateCurry_jlLineHeight_jlLineSpacing
+{
+    NSParagraphStyle *paragraphStyle =  [self.typingAttributes objectForKey:NSParagraphStyleAttributeName];
+    if (paragraphStyle)
+    {
+        if (paragraphStyle.minimumLineHeight<self.font.lineHeight)
+        {
+            _jlLineHeight = self.font.lineHeight;
+        }else{
+            _jlLineHeight = paragraphStyle.minimumLineHeight;
+        }
+        _jlLineSpacing = paragraphStyle.lineSpacing;
+    }else
+    {
+        _jlLineHeight = self.font.lineHeight;
+        _jlLineSpacing = 0.f;
     }
 }
 - (void)setText:(NSString *)text
@@ -295,36 +344,78 @@ static CGFloat const defaultTextHeight = -1.f;
 }
 -(void)setTextContainerInset:(UIEdgeInsets)textContainerInset
 {
+    UIEdgeInsets old = self.textContainerInset;
+
     [super setTextContainerInset:textContainerInset];
     [_placeholderView setTextContainerInset:textContainerInset];
-    _lastTextHeight = defaultTextHeight;
-    [self sizeToFitHightWhenNeed];
+
+    if (!UIEdgeInsetsEqualToEdgeInsets(old, textContainerInset)) {
+        self.isNextDidChangeHeight = YES;
+        [self sizeToFitHightWhenNeed];
+    }
 }
 -(void)setTypingAttributes:(NSDictionary<NSString *,id> *)typingAttributes
 {
-    NSMutableDictionary *dictM = [NSMutableDictionary dictionaryWithDictionary:typingAttributes];
-    if (![typingAttributes objectForKey:NSFontAttributeName]&&self.font) {
+    NSMutableDictionary *dictM;
+    if ([typingAttributes isKindOfClass:NSMutableDictionary.class]) {
+        dictM = (NSMutableDictionary *)typingAttributes;
+    }else{
+        dictM = [NSMutableDictionary dictionaryWithDictionary:typingAttributes];
+    }
+    //自动将font、textColor设置为当前富文本(如果未设置。而不是使用富文本的默认值)
+    if (![typingAttributes objectForKey:NSFontAttributeName] && self.font)
+    {
         [dictM setObject:self.font forKey:NSFontAttributeName];
     }
-    if (![typingAttributes objectForKey:NSForegroundColorAttributeName]&&self.textColor) {
+    if (![typingAttributes objectForKey:NSForegroundColorAttributeName]&&self.textColor)
+    {
         [dictM setObject:self.textColor forKey:NSForegroundColorAttributeName];
     }
     [super setTypingAttributes:dictM];
-    _placeholderView.typingAttributes = dictM;
+    [self setTypingAttributes_placeholderView:dictM];
+
+    
+    NSNumber *num = [typingAttributes objectForKey:NSKernAttributeName];
+    if (num){
+        _jlFontSpacing = num.floatValue;
+    }else{
+        _jlFontSpacing = 0.f;
+    }
+    
+    [self updateCurry_jlLineHeight_jlLineSpacing];
+    self.isNextDidChangeHeight = YES;
+    [self sizeToFitHightWhenNeed];
+}
+-(void)setTypingAttributes_placeholderView:(NSDictionary<NSString *,id> *)typingAttributes
+{
+    //_placeholderView
+    NSMutableDictionary *dictM_placeholder = [NSMutableDictionary dictionaryWithDictionary:typingAttributes];
+    if ([dictM_placeholder objectForKey:NSBackgroundColorAttributeName]) {//字体背景色
+        [dictM_placeholder removeObjectForKey:NSBackgroundColorAttributeName];
+    }
+    if ([dictM_placeholder objectForKey:NSShadowAttributeName]) {//阴影色
+        [dictM_placeholder removeObjectForKey:NSShadowAttributeName];
+    }
+    if ([dictM_placeholder objectForKey:NSStrokeColorAttributeName]) {//字体背景色
+        [dictM_placeholder removeObjectForKey:NSStrokeColorAttributeName];
+    }
+    if ([dictM_placeholder objectForKey:NSBackgroundColorAttributeName]) {//描边色
+        [dictM_placeholder removeObjectForKey:NSBackgroundColorAttributeName];
+        [dictM_placeholder removeObjectForKey:NSStrokeWidthAttributeName];
+    }
+    if ([dictM_placeholder objectForKey:NSStrikethroughColorAttributeName]) {//删除线颜色
+        [dictM_placeholder removeObjectForKey:NSStrikethroughColorAttributeName];
+        [dictM_placeholder removeObjectForKey:NSStrikethroughStyleAttributeName];
+        [dictM_placeholder removeObjectForKey:NSStrikethroughStyleAttributeName];
+    }
+    if ([dictM_placeholder objectForKey:NSUnderlineColorAttributeName]) {//下划线颜色
+        [dictM_placeholder removeObjectForKey:NSUnderlineColorAttributeName];
+        [dictM_placeholder removeObjectForKey:NSBaselineOffsetAttributeName];
+        [dictM_placeholder removeObjectForKey:NSUnderlineStyleAttributeName];
+    }
+    _placeholderView.typingAttributes = dictM_placeholder;
     _placeholderView.text = self.placeholder;
     _placeholderView.textColor = self.placeholderColor;
-
-    NSMutableParagraphStyle *attName =  [typingAttributes objectForKey:NSParagraphStyleAttributeName];
-    if (attName) {
-        if (attName.minimumLineHeight<self.font.lineHeight) {
-            _rowHeight = self.font.lineHeight;
-        }else{
-            _rowHeight = attName.minimumLineHeight;
-        }
-        _curryLineSpacing = attName.lineSpacing;
-    }
-    _lastTextHeight = defaultTextHeight;
-    [self sizeToFitHightWhenNeed];
 }
 -(void)layoutSubviews
 {
@@ -347,7 +438,7 @@ static CGFloat const defaultTextHeight = -1.f;
     CGRect originalRect = [super caretRectForPosition:position];
     NSMutableParagraphStyle *attName =  [self.typingAttributes objectForKey:NSParagraphStyleAttributeName];
     if (attName) {
-        originalRect.origin.y = originalRect.origin.y+(_rowHeight-self.font.lineHeight);
+        originalRect.origin.y = originalRect.origin.y+(_jlLineHeight-self.font.lineHeight);
     }
     NSNumber *baselineOffset = [self.typingAttributes objectForKey: NSBaselineOffsetAttributeName];
     if (baselineOffset) {
@@ -364,7 +455,9 @@ static CGFloat const defaultTextHeight = -1.f;
     paragraphStyle.minimumLineHeight = lineHeight ;// 字体的行高
     UIFont *attFont = font?font:self.font;
     UIColor *attColor = color?color:self.textColor;
+    
     CGFloat attLineHeight = lineHeight>attFont.lineHeight?lineHeight:attFont.lineHeight;
+   
     NSNumber *attOffset = @((attLineHeight-attFont.lineHeight)/2.f);//居中
     NSDictionary *attr = @{
                                  NSParagraphStyleAttributeName:paragraphStyle,
@@ -416,10 +509,15 @@ static CGFloat const defaultTextHeight = -1.f;
     }
     
 }
-- (CGFloat)jl_getTextViewContentTextWidth
+//左右
+- (CGFloat)jl_getWidthOfContentText
 {
     CGFloat contentWidth = CGRectGetWidth(self.frame);
-    //内容需要除去显示的边框值
+  
+//    CGSize size = CGSizeApplyAffineTransform(self.bounds.size, self.transform);//处理textView旋转等情况
+//    CGFloat contentWidth = size.width;
+
+    //内容需要除去显示的边框值= 文本排版真正宽度
     CGFloat broadWith    = (  self.contentInset.left
                             + self.contentInset.right
                             + self.textContainerInset.left
@@ -430,33 +528,32 @@ static CGFloat const defaultTextHeight = -1.f;
     contentWidth -= broadWith;
     return contentWidth;
 }
-- (CGFloat)jl_getTextHeightInTextView:(NSString *)text
-{
-    CGFloat  width = [self jl_getTextViewContentTextWidth];
-    CGSize InSize = CGSizeMake(width, MAXFLOAT);
-    CGFloat textHeight =  [text boundingRectWithSize:InSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:self.typingAttributes context:nil].size.height;
-    NSLog(@"textHeight=%f",textHeight);
-    return textHeight;
-}
-- (CGFloat)jl_getTextViewHeightWithTextHeight:(CGFloat)textHeight
+//上下
+- (CGFloat)jl_getHeightOfContentMargin
 {
     CGFloat broadHeight  = (  self.contentInset.top
                             + self.contentInset.bottom
                             + self.textContainerInset.top
                             + self.textContainerInset.bottom);//+self.textContainer.lineFragmentPadding/*top*//*+self*//*there is no bottom padding*/);
-    CGFloat height = textHeight+broadHeight;
-    NSLog(@"height=%f",height);
-    return height;
+    return broadHeight;
 }
+
+
+- (CGFloat)jl_getTextHeightInTextView:(NSString *)text
+{
+    CGFloat  width = [self jl_getWidthOfContentText];
+    CGSize InSize = CGSizeMake(width, MAXFLOAT);
+    CGFloat textHeight =  [text boundingRectWithSize:InSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:self.typingAttributes context:nil].size.height;
+    NSLog(@"text Height=%f",textHeight);
+    return textHeight;
+}
+
 - (CGFloat)jl_getTextViewHeightInTextView:(NSString *)text
 {
     CGFloat  textHeight = [self jl_getTextHeightInTextView:text];
-    CGFloat broadHeight  = (  self.contentInset.top
-                            + self.contentInset.bottom
-                            + self.textContainerInset.top
-                            + self.textContainerInset.bottom);//+self.textContainer.lineFragmentPadding/*top*//*+self*//*there is no bottom padding*/);
+    CGFloat broadHeight  = [self jl_getHeightOfContentMargin];
     CGFloat height = ceilf(textHeight+broadHeight);
-    NSLog(@"height=%f",height);
+    NSLog(@"TextView Heigh=%f",height);
     return height;
 }
 @end
