@@ -67,9 +67,9 @@ IB_DESIGNABLE
 
 
 //
-@property (nonatomic, assign, readonly) CGFloat jlLineHeight;//当前行高
-@property (nonatomic, assign, readonly) CGFloat jlLineSpacing;//行间距
-@property (nonatomic, assign, readonly) CGFloat jlFontSpacing;//字符间距
+@property (nonatomic, assign) CGFloat jlLineSpacing;//行间距
+@property (nonatomic, assign) CGFloat jlFontSpacing;//字符间距
+@property (nonatomic, assign) CGFloat jlLineHeight;//当前行高
 @property (nonatomic, assign, readonly) NSUInteger jlCurryLines;//当前文本行数
 
 

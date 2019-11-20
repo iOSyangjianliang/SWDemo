@@ -124,6 +124,95 @@
         self.text = [self.text substringToIndex:_maxLength]; // 截取最大限制字符数.
     }
 }
+-(void)setJlLineSpacing:(CGFloat)jlLineSpacing
+{
+    if (_jlLineSpacing==jlLineSpacing) {
+        return;
+    }
+    _jlLineSpacing = jlLineSpacing;
+
+    //1.
+    NSMutableDictionary *dictM;
+    if ([self.typingAttributes isKindOfClass:NSMutableDictionary.class]) {
+        dictM = (NSMutableDictionary *)self.typingAttributes;
+    }else{
+        dictM = [NSMutableDictionary dictionaryWithDictionary:self.typingAttributes];
+    }
+    
+    NSMutableParagraphStyle *paragraphStyle = [dictM objectForKey:NSParagraphStyleAttributeName];
+    if (!paragraphStyle || ![paragraphStyle isKindOfClass:NSMutableParagraphStyle.class])
+    {
+        paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [dictM setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    }
+    paragraphStyle.lineSpacing = _jlLineSpacing;// 字体的行间距
+    //2.全局都统一行间距
+    NSMutableAttributedString *attStrM = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+    [attStrM setAttributes:dictM range:NSMakeRange(0, self.attributedText.length)];
+    self.attributedText = attStrM;
+    //3.
+    [self setTypingAttributes:dictM];
+}
+-(void)setJlFontSpacing:(CGFloat)jlFontSpacing
+{
+    if (_jlFontSpacing==jlFontSpacing) {
+        return;
+    }
+    _jlFontSpacing = jlFontSpacing;
+    NSMutableDictionary *dictM;
+    if ([self.typingAttributes isKindOfClass:NSMutableDictionary.class]) {
+        dictM = (NSMutableDictionary *)self.typingAttributes;
+    }else{
+        dictM = [NSMutableDictionary dictionaryWithDictionary:self.typingAttributes];
+    }
+    [dictM setObject:@(_jlFontSpacing) forKey:NSKernAttributeName];
+    
+    NSMutableAttributedString *attStrM = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+    [attStrM setAttributes:dictM range:NSMakeRange(0, self.attributedText.length)];
+    self.attributedText = attStrM;//全局都统一字间距
+    [self setTypingAttributes:dictM];
+}
+-(void)setJlLineHeight:(CGFloat)jlLineHeight
+{
+    if (_jlLineHeight==jlLineHeight) {
+        return;
+    }
+    _jlLineHeight = jlLineHeight;
+    //1.
+    NSMutableDictionary *dictM;
+    if ([self.typingAttributes isKindOfClass:NSMutableDictionary.class]) {
+        dictM = (NSMutableDictionary *)self.typingAttributes;
+    }else{
+        dictM = [NSMutableDictionary dictionaryWithDictionary:self.typingAttributes];
+    }
+    
+    NSMutableParagraphStyle *paragraphStyle = [dictM objectForKey:NSParagraphStyleAttributeName];
+    if (!paragraphStyle || ![paragraphStyle isKindOfClass:NSMutableParagraphStyle.class])
+    {
+        paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [dictM setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    }
+    paragraphStyle.minimumLineHeight = _jlLineHeight;//行高
+//    BOOL needMiddle = NO;//较大行高时文字居中，而不是底部
+//    if (needMiddle)
+//    {
+//        UIFont *attFont = [dictM objectForKey:NSFontAttributeName];
+//        if (!attFont)
+//        {
+//            attFont = self.font;
+//        }
+//        CGFloat attLineHeight = _jlLineHeight> attFont.lineHeight?_jlLineHeight : attFont.lineHeight;
+//        NSNumber *baselineOffset = @((attLineHeight-attFont.lineHeight)/2.f);//调整BaselineOffset位置，使较大行高时文字居中，而不是底部
+//        [dictM setObject:baselineOffset forKey:NSBaselineOffsetAttributeName];
+//    }
+    
+    //2.全局都统一行间距
+    NSMutableAttributedString *attStrM = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+    [attStrM setAttributes:dictM range:NSMakeRange(0, self.attributedText.length)];
+    self.attributedText = attStrM;
+    //3.
+    [self setTypingAttributes:dictM];
+}
 #pragma mark - 自适应高度
 -(void)sizeToFitMinLinesHightWhenNoText
 {
@@ -211,16 +300,15 @@
     }
 }
 //为了解决bug
-//如果是一行并且带中文，并且设置了间距lineSpace，结果多发现显示出来多了一个间距的高度。
+//如果是一行并且带中文，并且设置了间距lineSpace>0.f，结果多发现显示出来多了一个间距的高度。
 - (CGFloat )calculateTextHeight
 {
     CGFloat textHeight = [self jl_getTextHeightInTextView:self.text];
 
-    //文本的高度减去字体高度小于等于行间距，判断为当前只有1行
     if (_jlLineSpacing>0.f)
     {
         if ( ( (textHeight - _jlLineHeight) - _jlLineSpacing) <= 0.01)
-        {// -> (textHeight - _jlLineHeight) == _jlLineSpacing)
+        {////文本的高度减去字体高度小于等于行间距，判断为当前只有1行 -> (textHeight - _jlLineHeight) == _jlLineSpacing)
             if ([self containChinese:self.text])
             { //如果包含中文
                 textHeight -= _jlLineSpacing;
@@ -231,7 +319,7 @@
     if ((_jlLineHeight+_jlLineSpacing)!=0) {
         CGFloat Lines = (textHeight+_jlLineSpacing)/(_jlLineHeight+_jlLineSpacing);
         _jlCurryLines = roundf(Lines);
-        NSLog(@"jl_jlCurryLines%f",Lines);
+        NSLog(@"jl_jlCurryLines = %f",Lines);
     }
 
     return textHeight;
@@ -315,11 +403,11 @@
     [super setFont:font];
     [_placeholderView setFont:font];
     
-    [self updateCurry_jlLineHeight_jlLineSpacing];//若已设置富文本、再设置font，font自动加入typingAttributes中、并调整富文本
+    [self setValue_jlLineHeight_jlLineSpacing];//若已设置富文本、再设置font，font自动加入typingAttributes中、并调整富文本
     self.isNextDidChangeHeight = YES;
     [self sizeToFitHightWhenNeed];
 }
--(void)updateCurry_jlLineHeight_jlLineSpacing
+-(void)setValue_jlLineHeight_jlLineSpacing
 {
     NSParagraphStyle *paragraphStyle =  [self.typingAttributes objectForKey:NSParagraphStyleAttributeName];
     if (paragraphStyle)
@@ -382,7 +470,7 @@
         _jlFontSpacing = 0.f;
     }
     
-    [self updateCurry_jlLineHeight_jlLineSpacing];
+    [self setValue_jlLineHeight_jlLineSpacing];
     self.isNextDidChangeHeight = YES;
     [self sizeToFitHightWhenNeed];
 }
@@ -458,7 +546,7 @@
     
     CGFloat attLineHeight = lineHeight>attFont.lineHeight?lineHeight:attFont.lineHeight;
    
-    NSNumber *attOffset = @((attLineHeight-attFont.lineHeight)/2.f);//居中
+    NSNumber *attOffset = @((attLineHeight-attFont.lineHeight)/2.f);//调整BaselineOffset位置，使较大行高时文字居中，而不是底部
     NSDictionary *attr = @{
                                  NSParagraphStyleAttributeName:paragraphStyle,
                                  NSBaselineOffsetAttributeName:attOffset
