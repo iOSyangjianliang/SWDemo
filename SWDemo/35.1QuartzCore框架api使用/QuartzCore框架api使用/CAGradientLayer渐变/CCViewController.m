@@ -19,7 +19,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //1.
-//        [self addGradientLayer];
+        [self addGradientLayer];
     
     //2.
 //        [self addGradientLayer_1];
@@ -42,9 +42,10 @@
     [self.view.layer addSublayer:gradientLayer];
     
     UILabel *label = [[UILabel alloc] initWithFrame:gradientLayer.bounds];
-    label.text = @"红紫蓝垂直渐变~~";
+    label.text = @"红紫蓝垂直渐变~3~";
     label.font = [UIFont boldSystemFontOfSize:25];
     label.backgroundColor = [UIColor clearColor];
+//    label.textColor = [UIColor clearColor];//不能透明
     [self.view addSubview:label];
     
     gradientLayer.mask = label.layer; //把文字label的layer作为渐变背景色的蒙层，也就是两layer合成

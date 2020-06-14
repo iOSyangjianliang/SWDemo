@@ -10,10 +10,10 @@
 
 #import <objc/runtime.h>
 
-#import "Demo1ViewController.h"
-#import "Demo2ViewController.h"
-#import "Demo3ViewController.h"
-#import "Demo4ViewController.h"
+//#import "Demo1ViewController.h"
+//#import "Demo2ViewController.h"
+//#import "Demo3ViewController.h"
+//#import "Demo4ViewController.h"
 
 @interface ViewController ()
 
@@ -45,7 +45,7 @@
     
 //    [self presentViewController:vc3 animated:YES completion:nil];
     
-    [self.navigationController pushViewController:vc9 animated:YES];
+    [self.navigationController pushViewController:vc7 animated:YES];
 
 }
 - (NSArray *)allProperties {
